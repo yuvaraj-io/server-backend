@@ -10,7 +10,11 @@ const pool = mysql.createPool({
   database: process.env.DB_NAME,
   waitForConnections: true,
   connectionLimit: 10, // Max connections
-  queueLimit: 0
+  queueLimit: 0,
+  ssl: {
+    rejectUnauthorized: false, // 🔒 important for Render/PlanetScale
+  },
+  connectTimeout: 10000, // 10s to avoid ETIMEDOUT
 });
 
 export default pool;

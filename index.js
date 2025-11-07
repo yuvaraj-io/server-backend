@@ -64,7 +64,9 @@ app.post("/api/announcements", async (req, res) => {
 // ✅ READ ALL (GET)
 app.get("/api/announcements", async (req, res) => {
   try {
+    console.log("started");
     const [rows] = await pool.query("SELECT * FROM announcements ORDER BY created_at DESC");
+       console.log("started");
     res.json(rows);
   } catch (error) {
     console.error("❌ GET Error:", error.message);

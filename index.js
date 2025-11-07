@@ -16,24 +16,24 @@ app.use(cors());
 // ✅ Full CORS Fix (Allow everything for dev)
 // ✅ Allow ALL origins, handle OPTIONS preflight explicitly
 
-app.use((req, res, next) => {
-    console.log('logging');
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Methods",
-    "GET, POST, PUT, PATCH, DELETE, OPTIONS"
-  );
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-  );
+// app.use((req, res, next) => {
+//     console.log('logging');
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header(
+//     "Access-Control-Allow-Methods",
+//     "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+//   );
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+//   );
 
-  if (req.method === "OPTIONS") {
-    return res.status(200).end(); // ✅ preflight success response
-  }
+//   if (req.method === "OPTIONS") {
+//     return res.status(200).end(); // ✅ preflight success response
+//   }
 
-  next();
-});
+//   next();
+// });
 
 const PORT = process.env.PORT || 5000;
 

@@ -69,8 +69,8 @@ app.get("/api/announcements", async (req, res) => {
        console.log("started");
     res.json(rows);
   } catch (error) {
-    console.error("❌ GET Error:", error.message);
-    res.status(500).json({ error: "Internal Server Error" });
+    console.error("❌ GET Error:", error);
+    res.status(500).json({ error: error});
   }
 });
 
